@@ -1,13 +1,13 @@
-import React, { cloneElement, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import '../styles/Main.scss';
-import classNames from 'classnames';
-import ContentsBox from './ContentsBox';
-import Modal from './Modal';
-import axios from 'axios';
-import { GoogleMap, Marker } from 'react-google-maps';
-import { fireEvent } from '@testing-library/react';
-import { render } from 'node-sass';
+import React, { cloneElement, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import "../styles/Main.scss";
+import classNames from "classnames";
+import ContentsBox from "./ContentsBox";
+import Modal from "./Modal";
+import axios from "axios";
+import { GoogleMap, Marker } from "react-google-maps";
+import { fireEvent } from "@testing-library/react";
+import { render } from "node-sass";
 //https://yourang-server.link:5000
 
 declare global {
@@ -43,12 +43,12 @@ function Main() {
 
   const [modalState, setModalState] = useState(false); ///////체크
 
-  const [placeInput, setPlaceInput] = useState('');
+  const [placeInput, setPlaceInput] = useState("");
   const [placeInfo, setPlaceInfo] = useState<any>([]);
   const [latLng, setLatLng] = useState<any>({});
   const [imgStatus, setImgStatus] = useState(false);
-  const [placeTypeSelect, setPlaceTypeSelect] = useState('');
-  const [currentLocation, setCurrentLocation] = useState('');
+  const [placeTypeSelect, setPlaceTypeSelect] = useState("");
+  const [currentLocation, setCurrentLocation] = useState("");
 
   const [modalInfo, setModalInfo] = useState({});
 
@@ -65,10 +65,10 @@ function Main() {
         return latLng;
       })
       .then((latLng) => {
-        console.log('좌표받기 성공', latLng);
+        console.log("좌표받기 성공", latLng);
         // 추천장소 카테고리 선택에 따라 서버로 보낼 장소 카테고리를 정하는 로직
         axios
-          .post('https://localhost:5001/google/map', {
+          .post("https://localhost:5001/google/map", {
             data: latLng,
             withCredentials: true,
             placeType: { [placeType]: placeType },
@@ -84,7 +84,7 @@ function Main() {
             });
 
             axios
-              .post('https://localhost:5001/google/places_photo', {
+              .post("https://localhost:5001/google/places_photo", {
                 place_ids: placeIds,
                 withCredentials: true,
               })
@@ -109,11 +109,11 @@ function Main() {
     };
 
     const map = new window.google.maps.Map(
-      document.getElementById('map') as HTMLElement,
+      document.getElementById("map") as HTMLElement,
       mapOptions
     );
 
-    axios.post('https://localhost:5001/google/map', {
+    axios.post("https://localhost:5001/google/map", {
       data: latLng,
       withCredentials: true,
     });
@@ -174,6 +174,15 @@ function Main() {
       (place: any) => place.detail.result.name === title
     );
 
+    console.log(infoForModal[0].detail.result.photos);
+
+    axios
+      .post("https://localhost:5001/google/photos", {
+        photos: infoForModal[0].detail.result.photos,
+      })
+      .then((res) => console.log("photo url들 왔나?", res));
+
+    // place.detail.result.photos
     setModalInfo(infoForModal[0]);
     setModalState(!modalState);
   };
@@ -188,14 +197,14 @@ function Main() {
       <div id="leftContainer">
         <ul id="leftMenu">
           <li
-            onClick={() => onClick('restaurant')}
+            onClick={() => onClick("restaurant")}
             value="restaurant"
             className={classNames({ restaurant: menuState.restaurant })}
           >
             맛집
           </li>
           <li
-            onClick={() => onClick('tourist_attraction')}
+            onClick={() => onClick("tourist_attraction")}
             value="tourist_attraction"
             className={classNames({
               tourist_attraction: menuState.tourist_attraction,
@@ -204,7 +213,7 @@ function Main() {
             명소
           </li>
           <li
-            onClick={() => onClick('hotel')}
+            onClick={() => onClick("hotel")}
             value="hotel"
             className={classNames({ hotel: menuState.hotel })}
           >
@@ -225,7 +234,7 @@ function Main() {
                   imgStatusHandler={imgStatusHandler}
                 />
               ))
-            : ''}
+            : ""}
         </div>
       </div>
       <div id="rightContainer">

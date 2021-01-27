@@ -43,4 +43,14 @@
       color: white;
     }
   }
+
+  #modal_Info {
+    border: solid;
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    width: 52.5vw;
+    height: 65vh;
+    align-items: center;
+  }
 }
