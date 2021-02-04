@@ -1,6 +1,6 @@
 [<img src="./src/image/logo.png" width="50%"/>](./src/image/logo.png)
 
-[Go to YouRang](http://yourang3.s3-website.ap-northeast-2.amazonaws.com/)
+[Go to YouRang](http://yourang.link)
 
 <!-- &nbsp; -->
 
