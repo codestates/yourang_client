@@ -1,6 +1,6 @@
 [<img src="./src/image/logo.png" width="50%"/>](./src/image/logo.png)
 
-[Go to YouRang](http://yourang.link)
+[🔗 Go to YouRang](http://yourang.link)
 
 <!-- &nbsp; -->
 
@@ -23,7 +23,7 @@
 
 <!-- &nbsp; -->
 
-[팀회고](bit.ly/f3b1)
+[🔗 팀회고](bit.ly/f3b1)
 
 <!-- &nbsp; -->
 
