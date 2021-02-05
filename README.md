@@ -2,6 +2,10 @@
 
 [Go to YouRang](http://yourang.link)
 
+[팀회고](bit.ly/f3b1)
+
+
+
 <!-- &nbsp; -->
 
 ---
