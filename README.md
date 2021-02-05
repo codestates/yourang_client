@@ -1,4 +1,4 @@
-[<img src="./src/image/logo.png" width="50%"/>](./src/image/logo.png)
+[<img src="./src/image/readme-topimg.png" width="100%" />](./src/image/readme-topimg.png)
 
 [🔗 Go to YouRang](http://yourang.link)
 
